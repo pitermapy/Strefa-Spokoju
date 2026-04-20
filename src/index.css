@@ -1,0 +1,85 @@
+@import "tailwindcss";
+
+@theme {
+  --color-primary: var(--primary);
+  --color-secondary: var(--secondary);
+  --color-accent: var(--accent);
+  --color-background: var(--background);
+  --color-surface: var(--surface);
+  --color-text: var(--text);
+  --color-text-muted: var(--text-muted);
+}
+
+@layer base {
+  :root {
+    --primary: #A7C7E7;
+    --secondary: #B7E4C7;
+    --accent: #F5E6CA;
+    --background: #FAFAFA;
+    --surface: #FFFFFF;
+    --text: #333333;
+    --text-muted: #666666;
+  }
+
+  .theme-light {
+    --primary: #A7C7E7;
+    --secondary: #B7E4C7;
+    --accent: #F5E6CA;
+    --background: #FAFAFA;
+    --surface: #FFFFFF;
+    --text: #333333;
+    --text-muted: #666666;
+  }
+
+  .theme-dark {
+    --primary: #6B9AC4; /* slightly darker blue for contrast */
+    --secondary: #7AB88B;
+    --accent: #D4C3A3;
+    --background: #121212;
+    --surface: #1E1E1E;
+    --text: #F0F0F0;
+    --text-muted: #A0A0A0;
+  }
+
+  .theme-blue {
+    --primary: #A7C7E7;
+    --secondary: #B7E4C7;
+    --accent: #F5E6CA;
+    --background: #EAF2F8;
+    --surface: #F4F8FB;
+    --text: #1A365D;
+    --text-muted: #2B6CB0;
+  }
+
+  .theme-green {
+    --primary: #B7E4C7;
+    --secondary: #A7C7E7;
+    --accent: #F5E6CA;
+    --background: #EDF7F0;
+    --surface: #F5FAF7;
+    --text: #1B5E20;
+    --text-muted: #388E3C;
+  }
+
+  .theme-sand {
+    --primary: #F5E6CA;
+    --secondary: #A7C7E7;
+    --accent: #B7E4C7;
+    --background: #FDFBF7;
+    --surface: #FFFFFF;
+    --text: #5D4037;
+    --text-muted: #795548;
+  }
+
+  body {
+    background-color: var(--background);
+    color: var(--text);
+    transition: background-color 0.3s ease, color 0.3s ease;
+    font-family: 'Inter', system-ui, -apple-system, sans-serif;
+  }
+
+  /* Hide scrollbar for clean app look */
+  ::-webkit-scrollbar {
+    display: none;
+  }
+}
