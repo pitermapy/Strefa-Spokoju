@@ -3,8 +3,10 @@ import { motion, AnimatePresence } from 'framer-motion';
 import { Calendar as CalendarIcon, Plus, X } from 'lucide-react';
 import { strings } from '../utils/strings';
 import { useLocalStorage } from '../hooks/useLocalStorage';
+import { useAppContext } from '../context/AppContext';
 
 export default function Dziennik() {
+  const { addPoints, updatePetMood } = useAppContext();
   const [entries, setEntries] = useLocalStorage('strefa_journal', []);
   const [isAdding, setIsAdding] = useState(false);
   const [note, setNote] = useState('');
@@ -20,8 +22,16 @@ export default function Dziennik() {
       };
       setEntries([newEntry, ...entries]);
       setNote('');
+      
+      // Update pet mood based on user mood
+      if (selectedMood !== null) {
+        if (selectedMood < 2) updatePetMood(-10); // Sad/Neutral decreases happiness slightly
+        else if (selectedMood > 2) updatePetMood(10); // Happy increases happiness
+      }
+      
       setSelectedMood(null);
       setIsAdding(false);
+      addPoints(10, 'Za wpis w notatniku!');
     }
   };
 

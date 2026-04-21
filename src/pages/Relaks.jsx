@@ -3,8 +3,10 @@ import { motion, AnimatePresence } from 'framer-motion';
 import { Play, Square, Plus, Wind, Coffee, Activity } from 'lucide-react';
 import { strings } from '../utils/strings';
 import { useLocalStorage } from '../hooks/useLocalStorage';
+import { useAppContext } from '../context/AppContext';
 
 export default function Relaks() {
+  const { addPoints } = useAppContext();
   const [customExercises, setCustomExercises] = useLocalStorage('strefa_exercises', []);
   const [isAdding, setIsAdding] = useState(false);
   const [newExercise, setNewExercise] = useState('');
@@ -31,6 +33,7 @@ export default function Relaks() {
     } else if (timeRemaining === 0 && isActive) {
       setIsActive(false);
       setActiveExercise(null);
+      addPoints(15, 'Za udany relaks!');
     }
     return () => clearInterval(interval);
   }, [isActive, timeRemaining]);

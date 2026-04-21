@@ -1,14 +1,14 @@
 import { NavLink } from 'react-router-dom';
-import { Home, Book, Wind, HeartPulse, Clock } from 'lucide-react';
+import { Home, Book, Wind, Dog, ShoppingBag } from 'lucide-react';
 import { strings } from '../utils/strings';
 
 export default function BottomNav() {
   const navItems = [
     { path: '/', label: strings.nav.start, icon: <Home size={24} /> },
     { path: '/dziennik', label: strings.nav.dziennik, icon: <Book size={24} /> },
+    { path: '/zwierzak', label: strings.nav.zwierzak, icon: <Dog size={24} /> },
+    { path: '/sklep', label: strings.nav.sklep, icon: <ShoppingBag size={24} /> },
     { path: '/relaks', label: strings.nav.relaks, icon: <Wind size={24} /> },
-    { path: '/quiz', label: strings.nav.quiz, icon: <HeartPulse size={24} /> },
-    { path: '/odliczanie', label: strings.nav.odliczanie, icon: <Clock size={24} /> },
   ];
 
   return (

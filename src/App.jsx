@@ -13,6 +13,9 @@ import Relaks from './pages/Relaks';
 import Quiz from './pages/Quiz';
 import Odliczanie from './pages/Odliczanie';
 import Onboarding from './pages/Onboarding';
+import Zwierzak from './pages/Zwierzak';
+import Sklep from './pages/Sklep';
+import FloatingPet from './components/FloatingPet';
 
 function App() {
   const [theme] = useLocalStorage('strefa_theme', 'light');
@@ -42,6 +45,8 @@ function App() {
               <Route path="/" element={<Start />} />
               <Route path="/dziennik" element={<Dziennik />} />
               <Route path="/relaks" element={<Relaks />} />
+              <Route path="/zwierzak" element={<Zwierzak />} />
+              <Route path="/sklep" element={<Sklep />} />
               <Route path="/quiz" element={<Quiz />} />
               <Route path="/odliczanie" element={<Odliczanie />} />
               <Route path="*" element={<Navigate to="/" replace />} />
@@ -51,6 +56,7 @@ function App() {
       </main>
 
       {showNav && <BottomNav />}
+      <FloatingPet />
     </div>
   );
 }

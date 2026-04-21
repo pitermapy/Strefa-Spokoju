@@ -3,6 +3,7 @@ import { motion } from 'framer-motion';
 import { Quote, Sparkles, Dog } from 'lucide-react';
 import { strings } from '../utils/strings';
 import { useLocalStorage } from '../hooks/useLocalStorage';
+import { useAppContext } from '../context/AppContext';
 
 export default function Start() {
   const [quoteIndex, setQuoteIndex] = useState(0);
@@ -11,6 +12,8 @@ export default function Start() {
   // Dog support state
   const [dogSupportData, setDogSupportData] = useLocalStorage('strefa_dog_support', { count: 0, lastDate: null });
   const [hasHelpedToday, setHasHelpedToday] = useState(false);
+
+  const { addPoints } = useAppContext();
 
   useEffect(() => {
     // Determine today's indices based on the date
@@ -25,8 +28,6 @@ export default function Start() {
     if (dogSupportData.lastDate === todayStr) {
       setHasHelpedToday(true);
     } else if (dogSupportData.lastDate !== null && dogSupportData.lastDate !== todayStr) {
-      // Reset if it's a new day, but keep count? The prompt says "Reset co 24h" and "Prosty licznik". 
-      // Let's assume the user just wants to click it once a day. The count can be lifetime or just "helped today".
       setHasHelpedToday(false);
     }
   }, [dogSupportData]);
@@ -39,6 +40,7 @@ export default function Start() {
         lastDate: todayStr
       });
       setHasHelpedToday(true);
+      addPoints(5, 'Za pomoc pieskom!');
     }
   };
 

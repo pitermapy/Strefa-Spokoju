@@ -4,7 +4,9 @@ export const strings = {
   // Navigation
   nav: {
     start: 'Start',
-    dziennik: 'Dziennik',
+    dziennik: 'Notatnik',
+    zwierzak: 'Zwierzak',
+    sklep: 'Sklep',
     relaks: 'Relaks',
     quiz: 'Quiz',
     odliczanie: 'Odliczanie',
@@ -117,5 +119,36 @@ export const strings = {
     blue: 'Błękitny',
     green: 'Zielony',
     sand: 'Piaskowy'
+  },
+
+  // Zwierzak
+  zwierzak: {
+    title: 'Twój Zwierzak',
+    chooseType: 'Wybierz swojego zwierzaka',
+    dog: 'Piesek 🐶',
+    cat: 'Kotek 🐱',
+    namePlaceholder: 'Jak nazwiesz zwierzaka?',
+    saveName: 'Zapisz',
+    happiness: 'Szczęście',
+    moodHappy: 'Szczęśliwy',
+    moodNeutral: 'Zwykły',
+    moodSad: 'Smutny',
+    chatPlaceholder: 'Powiedz coś...',
+    send: 'Wyślij'
+  },
+
+  // Sklep
+  sklep: {
+    title: 'Sklep Zwierzaka',
+    coins: 'SpokoCoiny',
+    buy: 'Kup',
+    equip: 'Załóż',
+    equipped: 'Założone',
+    items: {
+      hat: 'Czapka',
+      glasses: 'Okulary',
+      hoodie: 'Bluza',
+      costume: 'Kostium'
+    }
   }
 };
