@@ -35,7 +35,11 @@ export default function Zwierzak() {
 
     try {
       if (window.puter && window.puter.ai) {
-        const systemPrompt = "Jesteś uroczym, wspierającym zwierzakiem w aplikacji Strefa Spokoju. Pomagasz użytkownikowi emocjonalnie, ale nie jesteś terapeutą ani psychologiem. Odpowiadasz krótko, ciepło i bez oceniania.";
+        const systemPrompt = `Jesteś uroczym, wspierającym zwierzakiem o imieniu ${petData.name} w aplikacji Strefa Spokoju. 
+        Twoim zadaniem jest wspieranie użytkownika emocjonalnie. 
+        WAŻNE: Jeśli zauważysz, że użytkownik ma poważne problemy, jest bardzo smutny, mówi o krzywdzeniu siebie lub innych, ALBO po prostu czujesz, że potrzebuje profesjonalnej pomocy, DELIKATNIE zasugeruj mu rozmowę z "schoolworkerami" (psychologami szkolnymi/pedagogami). 
+        Powiedz, że to super osoby, które są tam po to, by go wysłuchać i pomóc mu w bezpieczny sposób. 
+        Odpowiadaj krótko, ciepło i bez oceniania.`;
         const response = await window.puter.ai.chat(
           `${systemPrompt}\n\nUser: ${userMsg}\nZwierzak:`
         );

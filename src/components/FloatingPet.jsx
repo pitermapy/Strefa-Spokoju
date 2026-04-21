@@ -49,11 +49,13 @@ export default function FloatingPet() {
     <div className="fixed inset-0 pointer-events-none z-[9999]">
       <motion.div
         drag
-        dragMomentum={false}
+        dragConstraints={{ left: 0, right: window.innerWidth - 80, top: 0, bottom: window.innerHeight - 80 }}
+        dragElastic={0.1}
+        dragTransition={{ bounceStiffness: 600, bounceDamping: 20 }}
         whileHover={{ scale: 1.1 }}
-        whileTap={{ scale: 0.9 }}
+        whileTap={{ scale: 1.1, cursor: 'grabbing' }}
         onTap={handlePet}
-        initial={{ x: 'calc(100vw - 100px)', y: '50vh' }}
+        initial={{ x: window.innerWidth - 100, y: window.innerHeight / 2 - 40 }}
         className="absolute pointer-events-auto cursor-grab active:cursor-grabbing select-none"
         style={{ width: 80, height: 80 }}
       >
